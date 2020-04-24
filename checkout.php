@@ -9,6 +9,7 @@
     <link href="IT353group.css" rel="stylesheet">
   </head>
   <body>
+
 <?php
 	include('header.php')
 ?>
