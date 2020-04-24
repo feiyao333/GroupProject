@@ -1,11 +1,11 @@
 <footer>
 	<div id="mainNavigationRow" >
 		<div class="container">
-			<nav class="navbar navbar-default" role="navigation">
+			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="aboutUs.html">About Us</a></li>
-						<li><a href="howToUse.html">How to Use</a></li>                               
+						<li><a href="aboutUs.php">About Us</a></li>
+						<li><a href="howToUse.php">How to Use</a></li>                               
 						<li><a href="#"><strong>Share:</strong></a></li>
 						<li><a href="#"><img src="images/social/email_16.png" alt="Email this to someone" /></a></li>
 						<li><a href="#"><img src="images/social/rss_16.png" alt="Syndicated content" /></a></li>  

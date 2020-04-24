@@ -1,7 +1,7 @@
 <header>
    <div id="topHeaderRow" >
-      <div class="container">
-         <nav class="navbar navbar-inverse " role="navigation">
+      <div class="container" >
+         <nav class="navbar navbar-inverse " role="navigation" >
             <div class="navbar-header">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                   <span class="sr-only">Toggle navigation</span>
@@ -23,6 +23,10 @@
             </div>
          </nav>
       </div>
+	  
+	  <div style="height: 180px; display:flex; align-items:center; justify-content:center;">
+		<img style="height: 180px;"src="images/shot pict/sealISU.png" alt="test">
+	  </div>
    </div>  
   
 </header>   

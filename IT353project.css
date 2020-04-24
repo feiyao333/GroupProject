@@ -36,7 +36,37 @@ footer {
 .moveRight {  text-align: right; }
 .strong { font-weight: bold; }/* IT353 group prject */
 
+.topHeaderRow{background-color: #FF0000;}
 
 
-
+.results {
+    width: 70%;
+    margin: 100px auto;
+}
+.results__caption {
+    font-weight: bold;
+    font-size: 110%;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px #616161 solid;
+}
+.results__label {
+    text-align: right;
+    font-weight: bold;
+    width: 20%;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+}
+.results__value {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.1{
+	font-weight: bold;
+	font-size: 30px;
+}
 

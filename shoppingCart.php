@@ -1,29 +1,32 @@
+<?php
+session_start();
+//$mail=$_SESSION["email"];
+?>
+
 <!-- Shopping Cart webpage html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISU Texbook Market</title>
+    <title>ISU Textbook Market</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="IT353group.css" rel="stylesheet">
-
+	<script type="text/javascript" src="IT353 project.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
-    <![endif]-->
-
-   
+    <![endif]-->   
 </head>
 
 <body>
 <?php
-	include('header.php')
+	include('header.php');	
 ?>
 	<div class="container">
 		<div class="page-header">
@@ -40,28 +43,64 @@
 			</tr>
 		
 		<?php
-			function outputCartRow($file, $product, $quantity, $price) {
-				$amount = $quantity*$price;
+			$serverName = "itkmssql";
+			$connectionOptions = array(
+			//*****************************
+				"Database" => "GroupProject3",
+				"Uid" => "IT353F914",
+				"PWD" => "special82"
+			);
+			
+			//Establishes the connection
+			$conn = sqlsrv_connect($serverName, $connectionOptions);
+			
+			$id='1@q';
+			$tableName = "Item";	
+			$sql = "select * from Account join Cart on Account.EMAIL=Cart.EMAIL join Item on Cart.title=Item.title where Account.EMAIL='$id';";
+			$subtotal=0;
+			$i=0;
+			$quantity=1;
+			$taxRate=.01;
+			
+			$stmt = sqlsrv_query($conn, $sql);
+			while($row = sqlsrv_fetch_array($stmt)){
+				$name= $row[6];
+				$price= $row[9];
+				$num= $row[10];
+				$quantity=$row[7];
+				
+				if(strpos($name,'Bus') !== false){ 
+					$package='business';
+				}
+				if(strpos($name,'Tec') !== false){ 
+					$package='technology';
+				}
+				if(strpos($name,'Eng') !== false){ 
+					$package='english';
+				}
+				if(strpos($name,'Sci') !== false){ 
+					$package='science';
+				}
+				if(strpos($name,'Art') !== false){ 
+					$package='art';
+				}
 		
-				echo"<tr><td><img src='images/product/$file'></td>";
+				$subtotal += outputCartRow($package, $num, $name, $quantity, $price);
+			}
+
+			function outputCartRow($package, $file, $product, $quantity, $price) {
+				$amount = $quantity*$price;
+				
+		
+				echo"<tr><td><img src='images/$package/$file.jpg' class='pic'></td>";
 				echo "<td>" . $product . "</td>";
 				echo "<td>" . $quantity . "</td>";
 				echo "<td>" . number_format($price, 2) . "</td>";
 				echo "<td>" . number_format($amount, 2) . "</td>";
-				echo "<td> <button type='button' class='btn btn-primary' >Edit</button><button type='button' class='btn btn-primary' >Remove</button></td></tr>";
+				echo "<td> <button type='button' class='btn btn-primary' >Remove</button></td></tr>";
 				return $amount;
 			}
-			
-			$subtotal=0;
-			$i=0;
-			include('data.php');
-			$subtotal += outputCartRow($file, $product, $quantity, $price);
-			$subtotal += outputCartRow($file, $product, $quantity, $price);
-			$subtotal += outputCartRow($file, $product, $quantity, $price);
-			for(;$i<$n;$i++){
-				$subtotal += outputCartRow($file[i], $product[i], $quantity[i], $price[i]);
-			}
-			
+		
 			$tax = $subtotal*$taxRate;
 			$grandTotal = $subtotal + $tax;
 			
