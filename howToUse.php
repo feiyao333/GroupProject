@@ -27,7 +27,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<img style="width: 100%;" src="images/shot pict/redbirdISU.jpg" alt="redbird">
+					<img style="width: 50%; heigth: auto"  src="images/shot pict/redbirdISU.jpg" alt="redbird">
 				</div>
 				<div class="col-md-9">
 					<div class="page-header">
