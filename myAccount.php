@@ -1,25 +1,20 @@
+<!-- My Account webpage -->
 <?php
 session_start();
 ?>
-
-<!-- My Account webpage -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISU Textbook Market</title>
-
     <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
-
     <link href="IT353group.css" rel="stylesheet">
 	<script type="text/javascript" src="IT353 project.js"></script>
-
   </head>
   <body>
 <?php
 	include('header.php');
-
 ?>
   		<div class="container">
 			<div class="row">
@@ -46,7 +41,7 @@ session_start();
 						<tr>
 						</tr>
 						<tr>
-							<td >Address </td>    
+							<td >Address</td>    
 							<td > <?php echo $_SESSION["add"]; ?></td> 
 						</tr>
 					</table>
@@ -109,6 +104,4 @@ session_start();
 	include('footer.php');
 ?>
   </body>
-
-            
-
+</html>
