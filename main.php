@@ -9,11 +9,9 @@
 	<script type="text/javascript" src="IT353 project.js"></script>
   </head>
 <body>
-
 <?php
 	include('header.php')
 ?>
-
 	<div class="container">
         <div class="col-md-3">      
 			<div class="panel panel-info">
@@ -56,7 +54,6 @@
 				<th></th>
 		    </tr>
 		</thead>
-		
 		<tbody>
 			<?php
 				$serverName = "itkmssql";
@@ -69,10 +66,8 @@
 				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
-				
 				$tableName = "Item";	
 				$sql = "select *from Item where title LIKE 'Sci%';";
-				
 				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
@@ -86,14 +81,10 @@
 					</tr>";
 				}
 			?>	
-
 		  </tbody>		
 	    </table>
 		</div>
-         
 	</div>  <!-- end container -->
-
-
 <?php
 	include('footer.php')
 ?> 
