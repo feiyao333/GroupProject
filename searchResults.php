@@ -5,9 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISU Textbook Market</title>
-   
     <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
-
     <link href="IT353group.css" rel="stylesheet">
   </head>
   <body>
@@ -21,6 +19,21 @@
 				</div>
                 <h1>Search Results</h1> 
 <?php
+
+try {   $connString = "mysql:host=localhost; dbname=ISUtextbooks";   
+        $user = "root"; 
+        $pass = "";
+   $pdo = new PDO($connString,$user,$pass);   
+   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $book = $_Post
+   $sql = "select * from Categories order by CategoryName";   
+   $result = $pdo->query($sql);
+
+   while ($row = $result->fetch()) {         echo $row['Title'] . " - " . $row['Price'] . "<br/>";      } $pdo = null; } catch (PDOException $e) {   die( $e->getMessage() ); }
+?>
+
+
+/*
     $serverName = "itkmssql";
     $connectionOptions = array(
          "Database" => "GroupProject3",
@@ -54,6 +67,7 @@
 	}
 
 sqlsrv_free_stmt($stmt);
+*/
 ?>
 </div>
 </div>
@@ -63,8 +77,3 @@ sqlsrv_free_stmt($stmt);
 <?php
 	include('footer.php')
 ?>
-
-            
-            
-
-
