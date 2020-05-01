@@ -13,10 +13,15 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse pull-right">
 				<ul class="nav navbar-nav">
-					<li><a href="main.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
-					<li><a href="login.php"><span class="glyphicon glyphicon-login"></span> Login</a></li>
-					<li><a href="createAccount.php"><span class="glyphicon glyphicon-Create"></span> Create Account</a></li>             
+					<li><a href="mainLog.php"><span class="glyphicon glyphicon-home"></span> Homepage</a></li>
+					<li><a href="myAccount.php"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+					<li><a href="shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
+               <li><a href="main.php"><span class="glyphicon glyphicon-shopping-cart"></span> Log out</a></li>                      
 				</ul>
+            <?php 
+               $email=$_SESSION["email"];
+               $_SESSION["email"]=$email;
+            ?>
             </div>
          </nav>
       </div>

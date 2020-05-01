@@ -12,7 +12,6 @@
     <?php
     include('header.php')
     ?>
-
     <div class="container">
         <div class="col-md-3">
             <div class="panel panel-info">
@@ -28,7 +27,6 @@
                     </ul>
                 </div>
             </div>
-			
                <div class="panel panel-danger">
 				<div class="panel-heading">
 					<h3 class="panel-title">Search by Title</h3>
@@ -54,6 +52,7 @@
 				<th></th>
 		    </tr>
 		</thead>
+		
 		<tbody>
 			<?php
 				$serverName = "itkmssql";
@@ -66,7 +65,6 @@
 				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
-				
 				$tableName = "Item";	
 				$sql = "select *from Item where title LIKE 'Eng%';";
 				$stmt = sqlsrv_query($conn, $sql);
