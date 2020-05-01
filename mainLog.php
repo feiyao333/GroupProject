@@ -11,7 +11,7 @@
 <body>
 
 <?php
-	include('header.php')
+	include('headerLog.php')
 ?>
 
 	<div class="container">
@@ -36,13 +36,12 @@
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="Search.php">Search By Title</a></li>
-						<li><a href="SearchPrice.php">Search By Price</a></li>
+						<li><a href="Search.php">Search</a></li>
 					</ul>
 				</div>
 			</div>       
 		</div>
-
+<
         <div class="col-md-9"> 
 			<div class="page-header">
 				<h2>Textbook Market</h2> 
@@ -52,9 +51,8 @@
 		<thead>
 		    <tr>
 			    <th colspan="2"></th>
-			    <th title = "Title">Title</th> 
-				<th title = "Price">Price</th> 
-				<th title = "User">User</th> 
+			    <th title = "Monday">Title</th> 
+				<th title = "Tuesday">Price</th> 
 				<th></th>
 		    </tr>
 		</thead>
@@ -71,8 +69,11 @@
 				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
+				
 				$tableName = "Item";	
 				$sql = "select *from Item where title LIKE 'Sci%';";
+				
+				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
 					echo"
@@ -81,32 +82,18 @@
 						<td><image src='images/science/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
-						<td>$row[3]</td>
-						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></button></td>
-					</tr>";
-				}
-
-				//Establishes the connection
-				$conn = sqlsrv_connect($serverName, $connectionOptions);
-				$tableName = "Item";	
-				$sql = "select *from Item where title LIKE 'Art%';";
-				$stmt = sqlsrv_query($conn, $sql);
-				while($row = sqlsrv_fetch_array($stmt)){
-					echo"
-					<tr>
-						<td><input type='checkBox' name='index[]' value='10'></td>
-						<td><image src='images/art/$row[2].jpg' class='pic'></td>
-						<td>$row[0]</td>
-						<td>$row[1]</td>
-						<td>$row[3]</td>
-						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></button></td>
+						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a><button></td>
 					</tr>";
 				}
 			?>	
+
 		  </tbody>		
 	    </table>
 		</div>
+         
 	</div>  <!-- end container -->
+
+
 <?php
 	include('footer.php')
 ?> 

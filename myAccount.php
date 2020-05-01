@@ -1,7 +1,8 @@
-<!-- My Account webpage -->
 <?php
 session_start();
 ?>
+
+<!-- My Account webpage -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,12 +15,13 @@ session_start();
   </head>
   <body>
 <?php
-	include('header.php');
+	include('headerLog.php');
 ?>
   		<div class="container">
-			<div class="row">
+		  	
+		  <div class="row">
 				<div class="col-md-3">
-					<img style="width: 50%; heigth: auto"  heigth: auto"  src="images/shot pict/redbirdISU.jpg" alt="redbird">
+					<img style="width: 40%;" src="images/shot pict/redbirdISU.jpg" alt="redbird">
 				</div>
 				<div class="col-md-5">
 					<table class="table table-bordered" style="	font-weight: bold;font-size: 15px;">
@@ -41,7 +43,7 @@ session_start();
 						<tr>
 						</tr>
 						<tr>
-							<td >Address</td>    
+							<td >Address </td>    
 							<td > <?php echo $_SESSION["add"]; ?></td> 
 						</tr>
 					</table>
@@ -100,8 +102,53 @@ session_start();
 					</section>
 				</div>
 			</div>
+
+			<div class = "row">
+					<form action="insert validation.php" method="POST" role="form" class="form-horizontal" >
+						<div class="page-header">
+							<h2>Selling things</h2>
+						</div>
+						
+						<div class="form-group">
+							<label for="title" class="col-md-3 control-label">Title</label>
+							<div class="col-md-9">
+								<input type="title" class="form-control" name="title" />
+							</div>
+						</div>
+							
+						<div class="form-group">
+							<label for="price" class="col-md-3 control-label">Price</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="price" />
+							</div>
+						</div>
+		
+						<div class="form-group">
+							<label for="number" class="col-md-3 control-label">Number</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="number"/>
+							</div>
+						</div>
+  
+						<div class="form-group">
+							<div class="col-md-offset-3 col-md-9">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="privacy" > I agree to the policy</a>
+									</label>
+								</div>
+							</div>
+						</div>     
+
+						<div class="form__box">
+							<div class="col-md-offset-3 col-md-9">
+								<input type="submit" class="form__btn"> <input type="reset" value="Clear Form" class="form__btn">
+							</div>
+						</div>
+					</form>
+			</div>
 <?php
 	include('footer.php');
 ?>
   </body>
-</html>
+  </html>  
