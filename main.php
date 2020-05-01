@@ -34,23 +34,23 @@
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="Search.php">Search</a></li>
+						<li><a href="Search.php">Search By Title</a></li>
+						<li><a href="SearchPrice.php">Search By Price</a></li>
 					</ul>
 				</div>
 			</div>       
 		</div>
-<
         <div class="col-md-9"> 
 			<div class="page-header">
 				<h2>Textbook Market</h2> 
 			</div>
         <table class="table table-condensed">
-
 		<thead>
 		    <tr>
 			    <th colspan="2"></th>
 			    <th title = "Title">Title</th> 
 				<th title = "Price">Price</th> 
+				<th title = "User">User</th> 
 				<th></th>
 		    </tr>
 		</thead>
@@ -67,7 +67,6 @@
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
 				$tableName = "Item";	
 				$sql = "select * from Item;";
-				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
 					echo"
@@ -76,6 +75,7 @@
 						<td><image src='images/science/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
+						<td>$row[3]</td>
 						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></td>
 					</tr>";
 				}
