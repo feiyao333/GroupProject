@@ -12,6 +12,7 @@
     <?php
     include('header.php')
     ?>
+
     <div class="container">
         <div class="col-md-3">
             <div class="panel panel-info">
@@ -34,16 +35,15 @@
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="Search.php">Search</a></li>
+						<li><a href="Search.php">Search By Title</a></li>
+						<li><a href="SearchPrice.php">Search By Price</a></li>
 					</ul>
 				</div>
 			</div>       
 		</div>
-		
         <div class="col-md-9">
             <table class="table table-condensed">
 			<caption><font color="#000000">Art Textbook</font></caption>
-
 		<thead>
 		    <tr>
 			    <th colspan="2"></th>
@@ -65,8 +65,11 @@
 				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
+				
 				$tableName = "Item";	
 				$sql = "select *from Item where title LIKE 'Art%';";
+				
+				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
 					echo"
@@ -75,7 +78,7 @@
 						<td><image src='images/art/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
-						<td>$row[2]</td>
+						<td>$row[3]</td>
 						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></button></td>
 					</tr>";
 				}
@@ -89,5 +92,6 @@
     ?>
     <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
     <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
