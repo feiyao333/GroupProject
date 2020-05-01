@@ -48,7 +48,7 @@
     {
 	   $price = $_POST['priceSearch'];
 	   $tableName = "Item";	
-				$sql = "select *from Item where price LIKE '$price'";
+				$sql = "select * from Item where price LIKE '$price'";
 	   
 	  
 	   $stmt = sqlsrv_query($conn, $sql);
@@ -61,7 +61,7 @@
 						<td><image src='images/science/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
-						<td>$row[2]</td>
+						<td>$row[3]</td>
 						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></button></td>
 					</tr>";
 	  }
@@ -83,8 +83,3 @@ sqlsrv_free_stmt($stmt);
 <?php
 	include('footer.php')
 ?>
-
-            
-            
-
-
