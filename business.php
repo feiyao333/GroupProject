@@ -12,7 +12,6 @@
     <?php
     include('header.php')
     ?>
-
     <div class="container">
         <div class="col-md-3">
             <div class="panel panel-info">
@@ -28,7 +27,6 @@
                     </ul>
                 </div>
             </div>
-
          <div class="panel panel-danger">
 				<div class="panel-heading">
 					<h3 class="panel-title">Search by Title</h3>
@@ -48,8 +46,9 @@
 		<thead>
 		    <tr>
 			    <th colspan="2"></th>
-			    <th title = "Monday">Title</th> 
-				<th title = "Tuesday">Price</th> 
+			    <th title = "Title">Title</th> 
+				<th title = "Price">Price</th> 
+				<th title = "User">User</th> 
 				<th></th>
 		    </tr>
 		</thead>
@@ -66,11 +65,8 @@
 				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
-				
 				$tableName = "Item";	
 				$sql = "select *from Item where title LIKE 'Bus%';";
-				
-				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
 					echo"
@@ -79,11 +75,11 @@
 						<td><image src='images/business/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
+						<td>$row[2]</td>
 						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a><button></td>
 					</tr>";
 				}
 			?>	
-
 		  </tbody>		
 	    </table>
         </div>
