@@ -49,8 +49,8 @@
 		<thead>
 		    <tr>
 			    <th colspan="2"></th>
-			    <th title = "Monday">Title</th> 
-				<th title = "Tuesday">Price</th> 
+			    <th title = "Title">Title</th> 
+				<th title = "Price">Price</th> 
 				<th></th>
 		    </tr>
 		</thead>
@@ -63,11 +63,10 @@
 					"Uid" => "IT353F914",
 					"PWD" => "special82"
 				);
-				
 				//Establishes the connection
 				$conn = sqlsrv_connect($serverName, $connectionOptions);
 				$tableName = "Item";	
-				$sql = "select *from Item where title LIKE 'Sci%';";
+				$sql = "select * from Item;";
 				
 				$stmt = sqlsrv_query($conn, $sql);
 				while($row = sqlsrv_fetch_array($stmt)){
@@ -77,7 +76,7 @@
 						<td><image src='images/science/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
-						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a><button></td>
+						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></td>
 					</tr>";
 				}
 			?>	
