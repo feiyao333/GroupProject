@@ -28,5 +28,4 @@
 		<img style="height: 50%;"src="images/shot pict/sealISU.png" alt="test">
 	  </div>
    </div>  
-  
 </header>   

@@ -18,22 +18,18 @@
 					<img style="width: 50%; heigth: auto"  src="images/shot pict/redbirdISU.jpg" alt="redbird">
 				</div>
                 <h1>Search Results</h1> 
+  <table class="table table-condensed">
+                <thead>
+		    <tr>
+			    <th colspan="2"></th>
+			    <th title = "Title">Title</th> 
+				<th title = "Price">Price</th> 
+				<th title = "User">User</th> 
+				<th></th>
+		    </tr>
+		</thead>
+		<tbody>
 <?php
-
-try {   $connString = "mysql:host=localhost; dbname=ISUtextbooks";   
-        $user = "root"; 
-        $pass = "";
-   $pdo = new PDO($connString,$user,$pass);   
-   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   $book = $_Post
-   $sql = "select * from Categories order by CategoryName";   
-   $result = $pdo->query($sql);
-
-   while ($row = $result->fetch()) {         echo $row['Title'] . " - " . $row['Price'] . "<br/>";      } $pdo = null; } catch (PDOException $e) {   die( $e->getMessage() ); }
-?>
-
-
-/*
     $serverName = "itkmssql";
     $connectionOptions = array(
          "Database" => "GroupProject3",
@@ -58,17 +54,26 @@ try {   $connString = "mysql:host=localhost; dbname=ISUtextbooks";
 	
 	  if ( $row = sqlsrv_fetch_array($stmt))
 	  {
-        echo "Title: ".$row[0]."<br/>"."Price ".$row[1]."<br/>"."Number of Books ".$row[2]."<br/>"."Owner: ".$row[3]."<br/>";
+	  	echo"
+					<tr>
+						<td><input type='checkBox' name='index[]' value='10'></td>
+						<td><image src='images/science/$row[2].jpg' class='pic'></td>
+						<td>$row[0]</td>
+						<td>$row[1]</td>
+						<td>$row[2]</td>
+						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a></button></td>
+					</tr>";
 	  }
 	  else
 	  {
 		  echo "no result";
 	  }
 	}
-
 sqlsrv_free_stmt($stmt);
-*/
 ?>
+		  </tbody>		
+	    </table>
+		</div>
 </div>
 </div>
 </div>
