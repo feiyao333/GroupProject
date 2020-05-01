@@ -49,7 +49,7 @@
 			    <th colspan="2"></th>
 			    <th title = "Title">Title</th> 
 				<th title = "Price">Price</th> 
-				<th title = "User">User/th> 
+				<th title = "User">User</th> 
 				<th></th>
 		    </tr>
 		</thead>
