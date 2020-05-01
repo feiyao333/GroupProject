@@ -75,7 +75,7 @@
 						<td><image src='images/business/$row[2].jpg' class='pic'></td>
 						<td>$row[0]</td>
 						<td>$row[1]</td>
-						<td>$row[2]</td>
+						<td>$row[3]</td>
 						<td><button><a href='#'><img src='images/edit16.png' > Add to cart</a><button></td>
 					</tr>";
 				}
