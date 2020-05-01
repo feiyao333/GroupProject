@@ -2,7 +2,7 @@
 	<div id="mainNavigationRow" >
 		<div class="container">
 			<nav class="navbar navbar-inverse" role="navigation">
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
+				 <div class="container-fluid text-center text-md-left">
 					<ul class="nav navbar-nav">
 						<li><a href="aboutUs.php">About Us</a></li>
 						<li><a href="howToUse.php">How to Use</a></li>                               
